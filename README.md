@@ -23,5 +23,5 @@ $ head -c 10M /dev/urandom | base64 | head -c 1G > inputs/random.txt
 
 ```bash
 $ cargo bench
-process_text_random     time:   [151.65 ms 155.99 ms 160.37 ms]
+process_text_random     time:   [54.685 ms 55.291 ms 55.947 ms]
 ```
