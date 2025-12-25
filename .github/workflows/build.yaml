@@ -27,6 +27,12 @@ jobs:
           curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
           echo "$HOME/.cargo/bin" >> $GITHUB_PATH
 
+      - name: Create Large Input
+        run: mkdir ./inputs && head -c 10M /dev/urandom | base64 | head -c 1G > inputs/random.txt
+
+      - name: Cargo Bench
+        run: cargo bench
+
       - name: Install Package
         run: cargo install --path .
 

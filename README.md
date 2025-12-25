@@ -15,14 +15,13 @@ Does not support Unicode, just ignores those bytes. You can recompile it with a 
 
 
 # Benchmarking
-I used the Project Gutenberg UTF-8 version of Moby Dick to benchmark this (inputs/moby_dick.txt). You will need to download this seperately to benchmark it yourself.
+I use random data to benchmark this (inputs/random.txt)
 
 ```bash
-$ du -h inputs/moby_dick.txt 
-1.3M    inputs/moby_dick.txt
+$ head -c 10M /dev/urandom | base64 | head -c 1G > inputs/random.txt
 ```
 
 ```bash
 $ cargo bench
-process_text_large      time:   [5.1793 ms 5.3112 ms 5.4583 ms]
+process_text_random     time:   [151.65 ms 155.99 ms 160.37 ms]
 ```
